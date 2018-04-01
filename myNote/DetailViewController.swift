@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     
     var text:String = ""                //1. set view property
-    var masterView:ViewController!      //2. new property that referance main view controller
+    var masterView:ViewController!      //2. new property that referance main viewController
     
     // ! means implicitly unwrapped optional, must be defined anytime need this ref.
 
@@ -36,7 +36,7 @@ class DetailViewController: UIViewController {
         textView.becomeFirstResponder()
     }
     
-    //this method will open up for setting text from the main view screen
+
     func setText(t:String) {
         text = t
         
