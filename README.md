@@ -9,5 +9,4 @@ Hightlight
 * Working with multiple view controllers
 * Adding search function (in development) 
 
-
-<img width="370" alt="mynotes-app" src="https://user-images.githubusercontent.com/25110154/38345100-33cee806-385b-11e8-9022-3e6d388cf149.png">
+![untitled-1](https://user-images.githubusercontent.com/25110154/38347882-33f91912-386c-11e8-9463-826c22ed403f.jpg)
