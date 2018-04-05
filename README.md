@@ -11,4 +11,4 @@ Hightlights
 * Working with multiple view controllers
 * Adding search function (in development) 
 
-![untitled-1](https://user-images.githubusercontent.com/25110154/38347882-33f91912-386c-11e8-9463-826c22ed403f.jpg)
+![mynote-ios](https://user-images.githubusercontent.com/25110154/38397473-c1071288-390b-11e8-836f-8ed82106e00d.jpg)
