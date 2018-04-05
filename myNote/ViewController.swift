@@ -21,8 +21,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var fileURL: URL!               // Save data to file
     
     
-    var filteredData = [String]()   // Search
-    var inSearchMode = false        // Search status
+     // Search
+    var filteredData = [String]()
+    var inSearchMode = false
     
     
     
@@ -39,6 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
        
  
         // MARK: Navigation
+        
         self.title = "myNotes"
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationItem.largeTitleDisplayMode = .always
@@ -46,6 +48,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // Define the add button for new note
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNote))
+        
         
         // Button position
         self.navigationItem.rightBarButtonItem = addButton
@@ -79,8 +82,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         data[selectedRow] = newRowText
-        
-        
         table.reloadData()
         save()
        
@@ -97,6 +98,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         // Adding new note to array here
+        
         let name: String = ""
         data.insert(name, at: 0)
         
@@ -133,7 +135,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
-    // put the appropriate text items inside and return with reusable string called cell (items)
+    // put the appropriate text items inside and return with reusable string called cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath)
@@ -145,7 +147,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
 
        
-       // cell.textLabel?.text = data[indexPath.row]
+       //cell.textLabel?.text = data[indexPath.row]
         return cell
     }
     
@@ -155,17 +157,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.performSegue(withIdentifier: "detail", sender: nil)
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let detailView:DetailViewController = segue.destination as! DetailViewController
         selectedRow = table.indexPathForSelectedRow!.row
         detailView.masterView = self
         if inSearchMode {
-
             detailView.setText(t: filteredData[selectedRow])
-
         } else {
-            
             detailView.setText(t: data[selectedRow])
         }
     }
@@ -173,16 +173,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
    
      //MARK: Edit
     override func setEditing(_ editing: Bool, animated: Bool) {
+        
         //Handle the editbutton method
         super.setEditing(editing, animated: animated)
-        // (built-in method)
+        
+        //(built-in method)
         table.setEditing(editing, animated: animated)
     }
 
     // Handle editing the content inside of the table
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        data.remove(at: indexPath.row)                  // remove the row from array
-        table.deleteRows(at: [indexPath], with: .fade)  // then update the table
+        data.remove(at: indexPath.row)
+        table.deleteRows(at: [indexPath], with: .fade)
         save()
     }
     
@@ -199,7 +201,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
   
-    // MARK: LOAD from file
+    // MARK: LOAD table from .txt file
     func load() {
         if  let loadedData:[String] = NSArray(contentsOf:fileURL) as? [String]{
             data = loadedData

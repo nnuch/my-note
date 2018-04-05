@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     var text:String = ""                //1. set view property
     var masterView:ViewController!      //2. new property that referance main viewController
     
-    // ! means implicitly unwrapped optional, must be defined anytime need this ref.
+    // ! means implicitly unwrapped optional.
 
     
     
