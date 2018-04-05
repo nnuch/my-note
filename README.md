@@ -1,6 +1,7 @@
 # myNotes
 
 myNotes app, I follow the tutorial "Building a Note-Taking App for iOS 11 with Swift" from lynda.com and trying to add-on search function into the app
+
 Hightlight 
 
 * Creating a table view controller
